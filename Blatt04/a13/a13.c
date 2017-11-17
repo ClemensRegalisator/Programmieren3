@@ -15,6 +15,7 @@ struct _person{
 int main(int argc, char *argv[]){
 	int anzahl = argc -1;
 	int counter = 0;
+    int i;
 	char aktName[25];
 	Perspointer start;
 	Perspointer letztePerson;
@@ -38,13 +39,22 @@ int main(int argc, char *argv[]){
 	/* Ende mit Anfang verbinden um Kreis erhalten */
 		letztePerson -> next = start;
 	
+	
 	aktPerson = start;
-	
-	while(aktPerson -> next != 0){
-		printf("%s", aktPerson -> next);
-		aktPerson = aktPerson -> next;
-	}
-	
-	
+    while(counter > 0){
+        
+	for(i = 0; i < anzahl; i++){
+        letztePerson = aktPerson;
+        aktPerson = aktPerson -> next;
+    }
+    
+	letztePerson -> next = aktPerson -> next;
+    printf("Raus: ");
+    printf("%s\n", aktPerson -> name);
+    free(aktPerson);
+    aktPerson = letztePerson;
+    
+    counter --;
+}
 	return 0;
 }
