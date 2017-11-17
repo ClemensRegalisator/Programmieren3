@@ -1,11 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>
+#include <string.h>
 
 
 typedef struct _person *Perspointer;
 struct _person{
-	char *name;
+	char name[25];
 	Perspointer next;
 }person;
 
@@ -24,12 +25,12 @@ int main(int argc, char *argv[]){
 	while(scanf("%s", aktName) != EOF){
 		if(counter == 0){
 		start = malloc(sizeof(person));
-		start -> name = aktName;
+		strcpy(start -> name, aktName);
 		letztePerson = start;
 		counter ++;
 	}
 		Perspointer neuePerson = malloc(sizeof(person));
-		neuePerson -> name = aktName;
+		strcpy(neuePerson -> name, aktName);
 		letztePerson -> next = neuePerson;
 		letztePerson = neuePerson;
 		counter++;
