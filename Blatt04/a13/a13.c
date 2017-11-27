@@ -29,12 +29,13 @@ int main(int argc, char *argv[]){
 		strcpy(start -> name, aktName);
 		letztePerson = start;
 		counter ++;
-	}
+	}else{
 		Perspointer neuePerson = malloc(sizeof(person));
 		strcpy(neuePerson -> name, aktName);
 		letztePerson -> next = neuePerson;
 		letztePerson = neuePerson;
 		counter++;
+    }
 	}
 	/* Ende mit Anfang verbinden um Kreis erhalten */
 		letztePerson -> next = start;
@@ -43,7 +44,7 @@ int main(int argc, char *argv[]){
 	aktPerson = start;
     while(counter > 0){
         
-	for(i = 0; i < anzahl; i++){
+	for(i = 1; i < anzahl; i++){
         letztePerson = aktPerson;
         aktPerson = aktPerson -> next;
     }
@@ -51,6 +52,7 @@ int main(int argc, char *argv[]){
 	letztePerson -> next = aktPerson -> next;
     printf("Raus: ");
     printf("%s\n", aktPerson -> name);
+    letztePerson = aktPerson ->next;
     free(aktPerson);
     aktPerson = letztePerson;
     
