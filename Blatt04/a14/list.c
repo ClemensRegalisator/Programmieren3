@@ -3,69 +3,46 @@
 #include <assert.h>
 #include "list.h"
 
-nodep head = NULL;
-nodep tail = NULL;
-
-
-
 
 void printList(nodep list){
     if(list == NULL){
         printf("Die Liste ist leer du dämlicher Bastard!\n");
     }else{
-        do{
-            printf("%p", list -> data);
-        }while(list -> next != NULL);
+       while(list){
+	   printf("%s \n", list -> data);
+	   list = list -> next;
+	   }
 }
 }
 
 
 nodep insertAt(nodep list, int pos, void *data){
     nodep aktNode;
-    int counter = 0;
-    int i;
+    int i = 0;
+	 nodep new = malloc(sizeof(struct _nodep));
+            new -> data = data;
     if(list == NULL){
-        if(pos != 0){
-            printf("Fehler!");
-            return list;
-        }else{
-            nodep new = malloc(sizeof(nodep));
-            new -> data = data;
-            return new;
-        }
+            return new;   
     }else{
-        aktNode = list;
-        do{
-            counter++;
-            aktNode = aktNode -> next;
-        }while(aktNode -> next);
-        aktNode = list;
-       } if(pos == counter){
-            while(aktNode -> next){
-                aktNode = aktNode -> next;
-            }
-            nodep new = malloc(sizeof(nodep));
-            new -> data = data;
-            aktNode -> next = new;
-            new -> prev = aktNode;
-    }else if(pos < counter){
-        aktNode = list;
-        for(i = 0; i < pos; i++){
-            aktNode = aktNode -> next;
-        }
-        nodep new = malloc(sizeof(nodep));
-            new -> data = data;
-            nodep temp;
-            temp = aktNode -> next;
-            temp -> prev = new;
-            new -> next = aktNode -> next;
-            aktNode -> next = new;
-            new -> prev = aktNode;
-            
-        
-    }
-        
-    
+		aktNode = list;
+		 while(aktNode -> next != NULL && i < pos){
+			aktNode = aktNode -> next;
+	}
+	if(i == pos){
+	aktNode -> next = new;
+	new -> prev = aktNode;
+	}
+	
+	if(i < pos && i > 0){
+		nodep temp = aktNode -> next;
+		aktNode -> next = new;
+		new -> prev = aktNode;
+		new -> next = temp;
+		temp -> prev = new;
+	}
+				 
+
+} 
     return list;
 }
 
