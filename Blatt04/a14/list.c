@@ -33,7 +33,7 @@ nodep insertAt(nodep list, int pos, void *data){
 	new -> prev = aktNode;
 	}
 	
-	if(i < pos && i > 0){
+	if(i < pos && i >= 0){
 		nodep temp = aktNode -> next;
 		aktNode -> next = new;
 		new -> prev = aktNode;

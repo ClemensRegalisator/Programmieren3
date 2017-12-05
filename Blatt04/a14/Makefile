@@ -14,4 +14,10 @@ a14: a14.o list.o
  
 run: a14
 	./a14
+
+val: a14
+	valgrind ./a14
+	
+nem: a14
+	nemiver ./a14
  
