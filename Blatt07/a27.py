@@ -5,16 +5,13 @@ def dreh(lst):
 
     if len(lst) > 0:
         i = lst[0]
-        print(lst)
-        lst[0] = i
-        dreh(lst[1:len(lst)])
-
-
-    else:
-      return lst
+        lst = dreh(lst[1:])
+        lst.append(i)
 
 
 
-lst = [1,2,3]
+    return lst
+
+lst = list(range(0,997))
 print(lst)
 print(dreh(lst))

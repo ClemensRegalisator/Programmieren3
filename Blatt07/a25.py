@@ -1,6 +1,7 @@
 #!user/bin/python3
 #-*- coding:UTF-8-*-
 
+"entfernt die vokale aus einem string s"
 def devocalize(s):
     r = ""
     for e in s:
