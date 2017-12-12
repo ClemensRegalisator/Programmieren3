@@ -52,7 +52,7 @@ nodep deleteAt(nodep list, int pos){
 
 
 nodep copyList(nodep list){
-    return list;
+    return list;c
 }
 
 void deleteList(nodep list){
