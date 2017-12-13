@@ -30,6 +30,15 @@ nodep insertAt(nodep list, int pos, void *data){
         return new;
     }
     
+    if(pos < 0){
+        temp = list;
+    while(temp->next != NULL){
+        temp=temp->next;
+    }
+    temp -> next = new;
+    new -> prev = temp;
+    return list;
+    }    
     temp = list;
     while(temp->next != NULL && pos > 1){
         temp=temp->next;
@@ -50,6 +59,34 @@ nodep insertAt(nodep list, int pos, void *data){
 }
 
 nodep deleteAt(nodep list, int pos){
+    nodep temp = list;
+    nodep safe;
+    if(list == NULL){
+        printf("Liste ist leer. Es gibt nichts zu löschen!");
+        return list;
+    }
+    if(pos == 0){
+        safe = temp -> next;
+        free(temp);
+        return safe;
+        
+    }
+    while(temp -> next != NULL && pos > 0){
+        temp = temp -> next;
+        pos--;
+    }
+    if(temp -> next == NULL){
+        safe = temp -> prev;
+        safe -> next == NULL;
+        free(temp);
+    }else{
+        safe = temp->prev;
+        safe -> next = temp -> next;
+        free(temp);
+        temp = safe -> next;
+        temp -> prev = safe;
+        
+    }
     return list;
 }
 
@@ -59,6 +96,13 @@ nodep copyList(nodep list){
 }
 
 void deleteList(nodep list){
+    nodep temp;
+ 
+    while(list){
+        temp = list -> next;
+        free(list);
+        list = temp;
+    }
 }
 
 
