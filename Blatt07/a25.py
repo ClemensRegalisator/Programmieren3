@@ -11,7 +11,7 @@ def devocalize(s):
 
     return r
 
-s = devocalize("Glogomirs Oma isst Popel")
+s = devocalize("Konsonanten sind cool, Vokale sind schwul!")
 
 print(s)
 

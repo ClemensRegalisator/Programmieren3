@@ -13,5 +13,6 @@ def dreh(lst):
     return lst
 
 lst = list(range(0,997))
+
+lst = dreh(lst)
 print(lst)
-print(dreh(lst))
