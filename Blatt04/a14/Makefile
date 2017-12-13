@@ -20,4 +20,7 @@ val: a14
 	
 nem: a14
 	nemiver ./a14
+
+clean: a14
+	rm a14 list.o a14.o
  

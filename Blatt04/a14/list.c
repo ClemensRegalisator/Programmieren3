@@ -17,33 +17,36 @@ void printList(nodep list){
 
 
 nodep insertAt(nodep list, int pos, void *data){
-    nodep aktNode;
-    int i = 0;
-	 nodep new = malloc(sizeof(struct _nodep));
-            new -> data = data;
+    nodep temp;
+    nodep temp2;
+    nodep new = malloc(sizeof(struct knoten));
+    new -> data = data;
     if(list == NULL){
-            return new;   
+        return new;
+    }
+    if(pos == 0){
+        new->next = list;
+        list->prev = new;
+        return new;
+    }
+    
+    temp = list;
+    while(temp->next != NULL && pos > 1){
+        temp=temp->next;
+        pos--;
+    }
+    if(temp -> next == NULL){
+    temp->next = new;
+    new->prev = temp;
     }else{
-		aktNode = list;
-		 while(aktNode -> next != NULL && i < pos){
-			aktNode = aktNode -> next;
-	}
-	if(i == pos){
-	aktNode -> next = new;
-	new -> prev = aktNode;
-	}
-	
-	if(i < pos && i >= 0){
-		nodep temp = aktNode -> next;
-		aktNode -> next = new;
-		new -> prev = aktNode;
-		new -> next = temp;
-		temp -> prev = new;
-	}
-				 
-
-} 
+        temp2 = temp ->next;
+        temp -> next = new;
+        new -> prev = temp;
+        new -> next = temp2;
+        temp2 -> prev = new;
+    }
     return list;
+    
 }
 
 nodep deleteAt(nodep list, int pos){
@@ -52,7 +55,7 @@ nodep deleteAt(nodep list, int pos){
 
 
 nodep copyList(nodep list){
-    return list;c
+    return list;
 }
 
 void deleteList(nodep list){

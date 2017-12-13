@@ -1,11 +1,12 @@
 #ifndef LIST_H
 #define LIST_H
 
-typedef struct _nodep{
-    struct nodep *next;
-    struct nodep *prev;
+typedef struct knoten *nodep;
+struct knoten{
+    nodep next;
+    nodep prev;
     void *data;
-}*nodep;
+};
 
 extern void printList(nodep list);
 extern nodep insertAt(nodep list, int pos, void *data);
