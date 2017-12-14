@@ -41,17 +41,17 @@ def ggTI(*a):
 
 
 
-print(ggTI(10, 80, 20, 11))
+print(ggTI(200, 100, 50, 5, 10, 25))
 
 
 summe = 0
 anzahl = 0
 
-with open("C:/Users/Clemens/PycharmProjects/Programmieren3/Blatt08/test.dat") as f:
+with open("C:/Users/Clemens/PycharmProjects/Programmieren3/Blatt08/a30-ggts.dat") as f:
         lines = f.readlines()
         for i in range(0, len(lines), 2):
             a = int(lines[i])
             b = int(lines[i+1])
-            summe += ggtNaiv(a,b)
+            summe += ggT(a,b)
             anzahl += 1
         print("Mittelwert:", summe / anzahl)
