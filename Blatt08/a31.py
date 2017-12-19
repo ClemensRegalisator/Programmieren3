@@ -4,6 +4,7 @@
 import sys
 import emoji
 
+
 def countWords(countText):
     d = {}
     wordlist = text.split( )
@@ -42,9 +43,10 @@ text = file.read()
 chars = sortDict(countChars(text))
 words = sortDict(countWords(text))
 
-print(chars[:25])
-print(words[:25])
 
+for i in range(50):
+    print("Wort: " +  str(words[i][0]) + " Anzahl:" + str(words[i][1]))
+    
 
 
 
