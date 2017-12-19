@@ -2,7 +2,7 @@
 #-*- coding:UTF-8-*-
 
 import sys
-
+import emoji
 
 def countWords(countText):
     d = {}
