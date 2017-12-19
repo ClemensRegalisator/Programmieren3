@@ -35,13 +35,13 @@ def ggTit(x,y):
 
 def ggTI(*a):
     a = list(a)
-    for i in range(len(a) -1):
+    for i in range(len(a) - 1):
             a[i+1] = ggT(a[i], a[i+1])
     return a[i+1]
 
 
 
-print(ggTI(200, 100, 50, 5, 10, 25))
+print(ggTI(25, 100, 60, 55, 75))
 
 
 summe = 0
