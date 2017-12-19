@@ -5,7 +5,10 @@ a15:a15.c
 	
 	
 run:a15
-	./a15 hitler ich hasse schwule neger du bastard
+	./a15 glogomir ist adolf hitler ihm sein sohn
+
+nem:a15
+	nemiver ./a15 glogomir ist adolf hitler ihm sein sohn
 
 clean:
 	rm a15

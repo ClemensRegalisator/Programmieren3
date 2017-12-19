@@ -1,47 +1,44 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <ctype.h>
 
-enum{ LEN =200};
 
-void machSexyZensur(char *wort, int argc, char *argv[] ){
-    char *wordP1 = wort;
-    char *wordP2 = wort;
-    char *zensurP;
+void zensurBitte(char *wort, int argc, char *argv[]){
+    char *wortP1 = wort;
+    char *wortP2 = wort;
+    char *zensP;
     int i;
-    int j;
     
-    while(*wordP1){ /*P1 navigiert durch das Wort */
-        for(i = 1; i< argc; i++){ /*Iteriere durch alle Zensurwoerter */
-           zensurP = argv[i];
-           while(*zensurP == *wordP2 && *wordP2 != 0){ /*Iteriere durch aktuelles Zensurwort */
-                   zensurP ++;
-                   wordP2 ++;
-           }
-           if(*zensurP  == '\0'){ /*Wenn eine Stelle Weiter eine 0 steht, wurde das ganze wort gefunden */
-               for(j=1; j<(wordP2 -wordP1); j++){
-                   wordP1 [j] = '*';
-               }
-               wordP1 = wordP2;
-           }
-            wordP2 = wordP1;                
-        }    
-            wordP1 ++;
-            wordP2 = wordP1;
+    for(i = 1; i < argc; i++){
+        zensP = argv[i];
+        while(tolower(*wortP1) == tolower(*zensP) && (*wortP1 != '\0')){
+            *wortP1++;
+            *zensP++;
+        }
+        if(*wortP1 == '\0'){
+            *wortP2++;
+            while(*wortP2 != '\0'){
+                *wortP2 = '*';
+                *wortP2++;
+            }
+            break;
+        }
         
     }
-    printf("%s", wort);
-    printf(" ");
-    
-    
-    
+    printf("%s ", wort);
 }
 
 
+
 int main(int argc, char *argv[]){
-    char eingabe [LEN];
-    while(scanf("%s", eingabe) != EOF){
-        machSexyZensur(eingabe, argc, argv);
+    
+      char eingabe [200];
+    while(scanf("%s ", eingabe) != EOF){
+       zensurBitte(eingabe, argc, argv);
         
     }
+    
+    
+    return 0;
 }
