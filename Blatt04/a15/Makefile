@@ -5,10 +5,10 @@ a15:a15.c
 	
 	
 run:a15
-	./a15 glogomir ist adolf hitler ihm sein sohn
+	./a15 glogomir doof diktator hitler
 
 nem:a15
-	nemiver ./a15 glogomir ist adolf hitler ihm sein sohn
+	nemiver ./a15 glogomir doof diktator hitler
 
 clean:
 	rm a15
