@@ -1,13 +1,13 @@
 #!user/bin/python3
-#-*- coding:UTF-8-*-
+# -*- coding:UTF-8 -*-
 
 import sys
-import emoji
+
 
 
 def countWords(countText):
     d = {}
-    wordlist = text.split( )
+    wordlist = countText.split( )
 
     for word in wordlist:
         if word.lower() in d:
