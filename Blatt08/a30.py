@@ -47,7 +47,7 @@ print(ggTI(25, 100, 60, 55, 75))
 summe = 0
 anzahl = 0
 
-with open("C:/Users/Clemens/PycharmProjects/Programmieren3/Blatt08/a30-ggts.dat") as f:
+with open("a30-ggts.dat") as f:
         lines = f.readlines()
         for i in range(0, len(lines), 2):
             a = int(lines[i])

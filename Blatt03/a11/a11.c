@@ -7,7 +7,7 @@ void run(char c, char encrypt[26], char decrypt[26]){
 	int i;
 	int bool = 1;
 	for(i = 0; i < 26; i++){
-	if(decrypt[i] == c){
+	if(decrypt[i] == tolower(c)){
 		printf("%c", encrypt[i]);
 		bool = 0;
 		break;
