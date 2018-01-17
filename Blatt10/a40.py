@@ -27,6 +27,7 @@ class Messreihe():
             for ele in other.liste:
                 if ele not in self.liste:
                     self.liste.append(ele)
+        return self
     
     
     def __iter__(self):
@@ -37,15 +38,16 @@ class Messreihe():
         
         if type(item) == int:
             return self.liste[item]
-        if type(item) == str:
+        elif type(item) == str:
             new = Messreihe()
             for ele in self.liste :
                 if ele.zeitpunkt[:len(item)] == item:
                     new.add(ele)
-        if type(item) == slice:
+            return new        
+        elif type(item) == slice:
             return self.liste[item.start : item.stop : item.step]
                     
-            return new
+        
     
     
         
@@ -73,19 +75,33 @@ if __name__ == '__main__':
     
     
     print(len(test))
-    print("fick dich git")
+   
     
     print(min(test, key=lambda Messwert: Messwert.temperatur))
     print(max(test, key=lambda Messwert: Messwert.temperatur))
     
     for ele in test:
-        if ele.temperatur > 33:
+        if ele.temperatur > 33.0:
             print(ele)
+           
     counter = 0
-    for ele in test["2017"]:
-       if ele.temperatur > 26:
-           counter = counter +1 
-    print(counter)        
+#    for ele in test["2017"]:
+ #       if ele.temperatur > 26:
+  #          counter = counter +1 
+   # print(counter)
+    temp = []
+    for ele in test:
+        if int(ele.temperatur) == 17:
+            temp.append(ele.zeitpunkt)       
+    print(temp[len(temp) -1 ])
+                   
+    letztedrei = test["2017-10"] + test["2017-11"] + test["2017-12"]   
+    sum = 0
+    for ele in letztedrei:
+        sum = sum + ele.temperatur
+    
+    print(sum / float(len(letztedrei)))
+        
         
     
     
