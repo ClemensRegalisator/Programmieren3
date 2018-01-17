@@ -73,11 +73,19 @@ if __name__ == '__main__':
     
     
     print(len(test))
-  #  print(min(test, key=lambda Messwert: Messwert.temperatur))
-  #  print(max(test, key=lambda Messwert: Messwert.temperatur))
     
+    print(min(test, key=lambda Messwert: Messwert.temperatur))
+    print(max(test, key=lambda Messwert: Messwert.temperatur))
+    
+    for ele in test:
+        if ele.temperatur > 33:
+            print(ele)
+   
     for ele in test["2017"]:
-        print(ele)
+       if ele.temperatur > 26:
+           counter = counter +1 
+    print counter        
+        
     
     
             
