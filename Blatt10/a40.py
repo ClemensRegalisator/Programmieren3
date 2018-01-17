@@ -62,7 +62,7 @@ class MessreihenIterator():
         self.pos += 1
         if self.pos >= len(self.liste):
             raise StopIteration
-        return self.liste(self.pos)        
+        return self.liste[self.pos]    
         
         
         
@@ -81,11 +81,11 @@ if __name__ == '__main__':
     for ele in test:
         if ele.temperatur > 33:
             print(ele)
-   
+    counter = 0
     for ele in test["2017"]:
        if ele.temperatur > 26:
            counter = counter +1 
-    print counter        
+    print(counter)        
         
     
     

@@ -1,6 +1,6 @@
 #!user/bin/python3
 # -*- coding:UTF-8 -*-
-from ecdsa.ellipticcurve import __main__
+
 from datetime import datetime
 import datetime
 
