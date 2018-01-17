@@ -73,6 +73,7 @@ if __name__ == '__main__':
     
     
     print(len(test))
+    print("fick dich git")
     
     print(min(test, key=lambda Messwert: Messwert.temperatur))
     print(max(test, key=lambda Messwert: Messwert.temperatur))
