@@ -16,3 +16,5 @@ lst = list(range(100))
 
 lst = dreh(lst)
 print(lst)
+
+
