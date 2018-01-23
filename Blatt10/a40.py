@@ -2,6 +2,7 @@
 # -*- coding:UTF-8 -*-
 
 import a39
+from logging.config import listen
 
 
 
@@ -46,6 +47,10 @@ class Messreihe():
             return new        
         elif type(item) == slice:
             return self.liste[item.start : item.stop : item.step]
+        
+        
+    def getGenerator(self):
+        return MessreihenGenIter(self.liste)
                     
         
     
@@ -60,14 +65,22 @@ class MessreihenIterator():
         self.pos = -1
         self.liste = liste
     
-    def __next__(self):
+    def __next__(self,):
         self.pos += 1
         if self.pos >= len(self.liste):
             raise StopIteration
         return self.liste[self.pos]    
         
+class MessreihenGenIter():
+    
+    def __init__(self, liste):
+        self.pos = -1
+        self.liste = liste
         
-        
+    def __iter__(self):
+        while True:
+            self.pos += 1
+            yield self.list[self.pos]
     
     
 if __name__ == '__main__':
