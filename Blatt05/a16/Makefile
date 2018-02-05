@@ -13,8 +13,8 @@ a16: a16.o textfun.o
  
  
 run: a16
-	./a16 glogomir=hurensohn niemand=jemand
+	./a16 glogomir=diktator niemand=jemand
 	
 nem: a16
-	nemiver ./a16 glogomir=hurensohn niemand=jemand
+	nemiver ./a16 glogomir=diktator niemand=jemand
  
